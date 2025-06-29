@@ -19,10 +19,10 @@ return new class extends Migration
             $table->string('media_url');
             $table->string('media_origin_table_type');
             $table->string('media_file_type');
-            $table->string('media_file_size')->nullable();;
-            $table->longText('media_file_other_data')->nullable();;
-            $table->foreignId('uploaded_by')->constrained('users')->onDelete('cascade');
-            $table->foreignId('deleted_by')->constrained('users')->onDelete('cascade');
+            $table->string('media_file_size')->nullable();
+            $table->longText('media_file_other_data')->nullable();
+            $table->foreignId('uploaded_by')->nullable()->constrained('users')->onDelete('cascade');
+            $table->foreignId('deleted_by')->nullable()->constrained('users')->onDelete('cascade');
             $table->softDeletes();
         });
     }
